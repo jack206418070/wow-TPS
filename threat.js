@@ -783,7 +783,7 @@ function selectEnemy() {
         });
         arrThreat.forEach((item, index) => {
             let el_u = document.createElement("option");
-            el_u.value = s + ";" + (index + 1);
+            el_u.value = s + ";" + item.target.key;
             el_u.textContent = item.target.name + " - " + item.target.type;
             el_targetSelect.appendChild(el_u);
             if ((index + 1) === prevSelection) el_targetSelect.selectedIndex = j;
@@ -803,7 +803,7 @@ function selectTarget(target) {
 		if (!target) {
 			let i = el.selectedIndex;
 			if (i === -1) return;
-            target = el.options[i].value;
+			target = el.options[i].value;
 		} else {
 			for (let i = 0; i < el.options.length; ++i) {
 				if (el.options[i].value === target) {
@@ -813,7 +813,7 @@ function selectTarget(target) {
 			}
 		}
 		let [reportId, fightId, enemyId, targetId] = target.split(";");
-        reports[reportId].fights[fightId].enemies[enemyId].threat[targetId].tabulate(el_out);
+		reports[reportId].fights[fightId].enemies[enemyId].threat[targetId].tabulate(el_out);
 	} catch (e) {
 		printError(e);
 	}

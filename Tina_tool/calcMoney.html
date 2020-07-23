@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tina_tool_calcMoney</title>
+    <style>
+        *{
+            font-family: Microsoft JhengHei;
+            color:#774836;
+        }
+        body{
+            background: #f3cda9;
+        }
+        h1{
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+        }
+        .base{
+            width: 450px;
+            margin: 20px auto;
+            margin-top: 150px;
+        }
+        .persent{
+            width: 450px;
+            margin: 20px auto;
+        }
+        .result{
+            width: 450px;
+            margin: 20px auto;
+        }
+        label{
+            font-size: 25px;
+            font-weight: bold;
+            display:inline-block;
+        }
+        input{
+            display: block;
+            margin-top: 10px;
+            height: 30px;
+            border-radius: 30px;
+            padding: 5px;
+            font-size: 25px;
+            display:inline-block;
+        }
+        input:focus{outline:none}
+        .base input{
+            margin-left: 35px;
+        }
+        .persent input{
+            margin-left: 25px;
+        }
+        .result input{
+            margin-left: 35px;
+        }
+        .clac:hover{
+            cursor: pointer;
+            background: #537479;
+            color:#fff;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Tina 計算機</h1>
+    <div class="base">
+        <label for="base">原始金額</label>
+        <input type="text">
+    </div>
+    <div class="persent">
+        <label for="persent">增加 % 數</label>
+        <input type="text">
+    </div>
+    <div class="result">
+        <label for="result">計算結果</label>
+        <input type="text" value="" disabled>
+    </div>
+    <input type="button" value="計算" class="clac" onclick="calc()" style="width: 200px; height: 60px; line-height: 60px; margin-left:840px; display: block;">
+    <script>
+        function calc(){
+            let base =  +document.querySelector('.base > input').value;
+            let persent = +document.querySelector('.persent > input').value;
+            let reslut = document.querySelector('.result > input');
+            reslut.value = base + base * (persent / 100);
+            reslut.textContent = base + base * (persent / 100);
+        }
+
+
+    </script>
+</body>
+</html>
